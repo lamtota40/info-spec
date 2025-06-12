@@ -27,13 +27,6 @@ fi
 hdd_usage=$(awk '{print $3}' <<< "$hddinfo")
 hdd_total=$(awk '{print $2}' <<< "$hddinfo")
 cekip=$(curl -s "http://ip-api.com/json/")
-sfailed=$(systemctl --type=service | grep "failed" | wc -l)
-domain=$(cat /root/myvpn/domain)
-nsdomain=$(cat /root/myvpn/nsdomain)
-dateinstall="14/05/23"
-explicen="lifetime"
-daily_usage=$(vnstat -d --oneline | awk -F\; '{print $6}' | sed 's/ //')
-monthly_usage=$(vnstat -m --oneline | awk -F\; '{print $11}' | sed 's/ //')
 OS_NAME=$(lsb_release -si)
 OS_VERSION=$(lsb_release -sr)
 OS_CODENAME=$(lsb_release -sc)
@@ -61,5 +54,4 @@ echo -e "CPU Info : Usage = $cpuuse% | $pinfo | $(systemd-detect-virt)"
 echo -e "RAM	 : Usage = $ram_usage Mb ($(($ram_usage * 100 / $ram_total))%) | Total = $ram_total Mb"
 echo -e "SWAP RAM : Usage = $swap_usage Mb ($swap_percent%) | Total = $swap_total Mb"
 echo -e "HDD      : Usage = $hdd_usage ($(awk '{print $5}' <<< "$hddinfo")) | Total = $hdd_total"
-echo -e "Service  : $sfailed OFF | Total 60"
 echo -e "┌──────────────────────────────────────────────────┐"

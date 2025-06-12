@@ -46,7 +46,7 @@ echo -e "╘══════════════════════�
 echo -e "Time	 : `date "+%H:%M"` | `date "+%d/%m/%y"` | GMT $gmt_info"
 echo -e "Uptime	 : `uptime -p`"
 echo -e "OS       : $OS_NAME | $OS_VERSION $OS_CODENAME | $ARCHITECTURE"
-echo -e "IP Public	 : $(jq -r '.query' <<< "$cekip")"
+echo -e "IP Public : $(jq -r '.query' <<< "$cekip")"
 echo -e "ISP	 : $(jq -r '.isp' <<< "$cekip") | $(jq -r '.country' <<< "$cekip")"
 echo -e "CPU Speed: $cpuinfo"
 echo -e "CPU Info : Usage = $cpuuse% | $pinfo | $(systemd-detect-virt)"
